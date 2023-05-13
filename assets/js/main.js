@@ -1,5 +1,6 @@
 const pokemonList = document.querySelector("#pokemonList");
-const limit = 5;
+const btnCarregarMais = document.querySelector("#btnCarregarMais");
+const limit = 8;
 let offset = 0;
 
 function loadPokemons(offset, limit) {
@@ -23,3 +24,8 @@ function loadPokemons(offset, limit) {
 }
 
 loadPokemons(offset, limit);
+
+btnCarregarMais.addEventListener("click", () => {
+    offset += limit;
+    loadPokemons(offset, limit);
+});
