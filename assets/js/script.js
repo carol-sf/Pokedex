@@ -17,8 +17,6 @@ function convertPokemonToLi(pokemon) {
     `;
 }
 
-pokeApi.getPokemons().then((pokemons) => {
-    pokemons.forEach(pokemon => {
-        pokemonList.innerHTML += convertPokemonToLi(pokemon);
-    });
+pokeApi.getPokemons().then((pokemonListJson = []) => {
+    pokemonList.innerHTML = pokemonListJson.map(convertPokemonToLi).join('');
 });
