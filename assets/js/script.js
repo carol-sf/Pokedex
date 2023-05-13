@@ -22,5 +22,4 @@ function convertPokemonToLi(pokemon) {
 
 pokeApi.getPokemons().then((pokemonListJson = []) => {
     pokemonList.innerHTML = pokemonListJson.map(convertPokemonToLi).join('');
-    // pokemonListJson.map(convertPokemonTypesToLi);
 });
