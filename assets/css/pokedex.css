@@ -123,6 +123,20 @@
     height: 70px;
 }
 
+.paginacao {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.paginacao button {
+    border: none;
+    border-radius: 1rem;
+    background-color: #6c79db;
+    color: #ffffff;
+    padding: .5rem .625rem;
+}
+
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;
