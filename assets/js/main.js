@@ -1,8 +1,8 @@
 const pokemonList = document.querySelector("#pokemonList");
 const btnCarregarMais = document.querySelector("#btnCarregarMais");
 
-const maxRecords = 11;
-const limit = 5;
+const maxRecords = 151;
+const limit = 12;
 let offset = 0;
 
 function loadPokemons(offset, limit) {
@@ -29,5 +29,13 @@ loadPokemons(offset, limit);
 
 btnCarregarMais.addEventListener("click", () => {
     offset += limit;
-    loadPokemons(offset, limit);
+    const qtdRecordNextPage = offset + limit;
+    
+    if(qtdRecordNextPage > maxRecords) {
+        const newLimit = maxRecords - offset;
+        loadPokemons(offset, newLimit);
+        btnCarregarMais.parentElement.removeChild(btnCarregarMais);
+    } else {
+        loadPokemons(offset, limit);
+    }
 });
