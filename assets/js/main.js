@@ -1,41 +1,41 @@
-const pokemonList = document.querySelector("#pokemonList");
-const btnCarregarMais = document.querySelector("#btnCarregarMais");
+const listaPokemon = document.querySelector("#listaPokemon");
+const btnMaisPokemon = document.querySelector("#btnMaisPokemon");
 
-const maxRecords = 151;
+const maxFichas = 151;
 const limit = 12;
 let offset = 0;
 
-function loadPokemons(offset, limit) {
+function carregarPokemons(offset, limit) {
     pokeApi.getPokemons(offset,limit).then((pokemonListJson = []) => {
-        const newHtml = pokemonListJson.map((pokemon) => `
-            <li class="pokemon ${pokemon.type}">
-                <span class="numero">#${pokemon.number}</span>
-                <span class="nome">${pokemon.name}</span>
+        const novoHtml = pokemonListJson.map((pokemon) => `
+            <li class="pokemon ${pokemon.tipo}">
+                <span class="numero">#${pokemon.numero}</span>
+                <span class="nome">${pokemon.nome}</span>
                 <div class="detalhes">
                     <ol class="tipos">
-                        ${pokemon.types.map((type) => `<li>${type}</li>`).join('')}
+                        ${pokemon.tipos.map((tipo) => `<li>${tipo}</li>`).join('')}
                     </ol>
-                    <img src="${pokemon.photo}"
-                        alt="${pokemon.name}">
+                    <img src="${pokemon.foto}"
+                        alt="${pokemon.nome}">
                 </div>
             </li>
         `).join('');
     
-        pokemonList.innerHTML += newHtml;
+        listaPokemon.innerHTML += novoHtml;
     });
 }
 
-loadPokemons(offset, limit);
+carregarPokemons(offset, limit);
 
-btnCarregarMais.addEventListener("click", () => {
+btnMaisPokemon.addEventListener("click", () => {
     offset += limit;
-    const qtdRecordNextPage = offset + limit;
+    const fichasProximaPag = offset + limit;
     
-    if(qtdRecordNextPage > maxRecords) {
-        const newLimit = maxRecords - offset;
-        loadPokemons(offset, newLimit);
-        btnCarregarMais.parentElement.removeChild(btnCarregarMais);
+    if(fichasProximaPag > maxFichas) {
+        const novoLimit = maxFichas - offset;
+        carregarPokemons(offset, novoLimit);
+        btnMaisPokemon.parentElement.removeChild(btnMaisPokemon);
     } else {
-        loadPokemons(offset, limit);
+        carregarPokemons(offset, limit);
     }
 });

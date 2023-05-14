@@ -11,14 +11,14 @@ body {
     background-color: #ebf2fd;
 }
 
-.content {
+.pokedex {
     padding: 1rem;
     background-color: #ffffff;
     height: 100vh;
 }
 
 @media screen and (min-width: 992px) {
-    .content {
+    .pokedex {
         max-width: 992px;
         height: auto;
         margin: 1rem auto;
