@@ -1,3 +1,31 @@
+:root {
+    --fundo-colorido: #1EC8A7;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ebf2fd;
+}
+
+.pokedex {
+    padding: 1rem;
+    background-color: #ffffff;
+    height: 100vh;
+}
+
+@media screen and (min-width: 992px) {
+    .pokedex {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+}
+
 .bug {
     background-color: #009a49;
 }
