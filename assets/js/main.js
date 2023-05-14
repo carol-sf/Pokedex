@@ -15,7 +15,7 @@ function carregarPokemons(offset, limit) {
                     <ol class="tipos">
                         ${pokemon.tipos.map((tipo) => `<li>${tipo}</li>`).join('')}
                     </ol>
-                    <div>
+                    <div class="foto">
                         <img src="${pokemon.foto}" alt="${pokemon.nome}">
                     </div>
                 </div>
