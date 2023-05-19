@@ -97,7 +97,14 @@ body {
     grid-template-columns: 1fr;
 }
 
+/* .pokemon a {
+    text-decoration: none;
+    color: #fff;
+
+} */
+
 .pokemon {
+    text-decoration: none;
     margin: .5rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -161,6 +168,7 @@ body {
     background-color: #6c79db;
     color: #ffffff;
     padding: .5rem .625rem;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1200px) {
